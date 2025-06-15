@@ -7,28 +7,28 @@ import "../styles/slider.css";
 const stickerData = [
   {
     alt: "1 Стікер",
-    src: "/one-sticker.png",
+    src: "/ticket.png",
     title: "1 Стікер",
     oldPrice: 100,
     newPrice: 99,
   },
   {
     alt: "2 Стікера",
-    src: "/two-stickers.png",
+    src: "/ticket.png",
     title: "2 Стікера",
     oldPrice: 200,
     newPrice: 199,
   },
   {
     alt: "5 + 1 Стікер",
-    src: "/six-stickers.png",
+    src: "/ticket.png",
     title: "5 + 1 Стікер",
     oldPrice: 600,
     newPrice: 499,
   },
   {
     alt: "10 + 2 Стікер",
-    src: "/eleven-stickers.png",
+    src: "/ticket.png",
     title: "10 + 2 Стікер",
     oldPrice: 1200,
     newPrice: 999,
