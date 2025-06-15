@@ -1,0 +1,14 @@
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+.marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 2s linear infinite;
+}
