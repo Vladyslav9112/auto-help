@@ -7,28 +7,28 @@ import "../styles/slider.css";
 const stickerData = [
   {
     alt: "1 Стікер",
-    src: "/ticket.png",
+    src: "/1.png",
     title: "1 Стікер",
     oldPrice: 100,
     newPrice: 99,
   },
   {
     alt: "2 Стікера",
-    src: "/ticket.png",
+    src: "/2.png",
     title: "2 Стікера",
     oldPrice: 200,
     newPrice: 199,
   },
   {
     alt: "5 + 1 Стікер",
-    src: "/ticket.png",
+    src: "/6.png",
     title: "5 + 1 Стікер",
     oldPrice: 600,
     newPrice: 499,
   },
   {
     alt: "10 + 2 Стікер",
-    src: "/ticket.png",
+    src: "/12.png",
     title: "10 + 2 Стікер",
     oldPrice: 1200,
     newPrice: 999,
@@ -116,7 +116,8 @@ export default function Slider() {
     <section className="my-[30px] py-1 text-white">
       <div
         className="
-      flex overflow-x-auto scroll-smooth relative
+      grid grid-cols-2 sm:grid-cols-4
+      gap-6 px-2
     "
       >
         {stickerData.map(({ alt, src, title, oldPrice, newPrice }, index) => (
@@ -126,22 +127,23 @@ export default function Slider() {
             onClick={(e) => handleCardClick(e, index)}
             type="button"
             className={`
-          flex-shrink-0 overflow-hidden
-          bg-white rounded-lg py-1 shadow-card
-          transition-transform duration-200 min-w-[200px] min-h-[177px] z-10 my-4 mr-6
+          overflow-hidden
+          bg-white rounded-lg py-1 shadow-card w-full
+          transition-transform duration-200 z-10
           ${activeIndex === index ? "scale-[1.1] z-10" : ""}
         `}
-            style={{ verticalAlign: "top" }}
           >
-            <div id="card-image" className="mb-2">
+            <div id="card-image" className="mb-2 flex justify-center">
               <Image
                 alt={alt}
                 src={src}
-                width={180}
-                height={180}
-                className="mx-auto border-b border-[rgba(0,0,0,0.15)]"
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="w-[300px] h-[150px] border-b border-[rgba(0,0,0,0.15)] rounded-t-lg object-contain"
               />
             </div>
+
             <div id="card-info" className="text-left px-4 py-1">
               <p className="text-lg mb-2 text-black font-bold">{title}</p>
               <p className="text-sm line-through text-gray-400">{oldPrice} ₴</p>

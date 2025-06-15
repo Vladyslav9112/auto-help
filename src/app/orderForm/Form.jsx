@@ -107,7 +107,7 @@ export default function Form() {
 
   return (
     <ContentWrapper>
-      <div className="bg-white rounded-md p-3 md:p-6 shadow-card shadow-md h-auto m-8">
+      <div className="bg-white rounded-md shadow-card shadow-md h-auto my-4 p-3 md:p-6">
         <h2 className="mb-4 text-lg font-semibold flex items-center gap-2">
           <ShoppingCart />
           Вибрано: {selectedSticker.title} — {selectedSticker.price} ₴

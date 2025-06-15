@@ -1,32 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import ContentWrapper from "./ContentWrapper";
-import { Info } from "lucide-react";
+import { Info, CircleChevronLeft } from "lucide-react";
 import Image from "next/image";
 
 export default function Header() {
   const router = useRouter();
-  const [canGoBack, setCanGoBack] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setCanGoBack(window.history.length > 2);
-    }
-  }, []);
+  // Кнопка показується на всіх сторінках, крім "/"
+  const showBackButton = pathname !== "/";
 
   return (
     <header className="bg-[#18B269] text-white mb-2 md:mb-4">
       <ContentWrapper>
         <div className="flex justify-between items-center h-[90px]">
           {/* Назад */}
-          {canGoBack ? (
+          {showBackButton ? (
             <button
-              onClick={() => router.back()}
-              className="justify-self-start ml-4 text-2xl"
+              onClick={() => router.push("/")}
+              className="justify-self-start text-2xl"
             >
-              ⬅
+              <CircleChevronLeft className="w-[30px] h-[30px] cursor-pointer" />
             </button>
           ) : (
             <div className="ml-4" />
@@ -46,7 +42,7 @@ export default function Header() {
 
           {/* Інфо */}
           <div className="flex">
-            <a href="#" className="justify-self-end mr-4 text-2xl">
+            <a href="/contacts" className="justify-self-end mr-4 text-2xl">
               <Info className="w-[30px] h-[30px]" />
             </a>
           </div>
