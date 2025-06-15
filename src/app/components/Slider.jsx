@@ -1,6 +1,8 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import "../styles/slider.css";
 
 const stickerData = [
   {
@@ -33,22 +35,19 @@ const stickerData = [
   },
 ];
 
-export default function Slider({ onBuy }) {
+export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(null);
   const btnRefs = useRef([]);
-
-  // Реф для кнопки Придбати
   const buyBtnRef = useRef(null);
+  const router = useRouter();
 
-  // Анімаційний стан
   const animationFrameId = useRef(null);
   const backgroundPosition = useRef(0);
 
-  // Функція анімації фону
   const animateBackground = () => {
     if (!buyBtnRef.current) return;
 
-    backgroundPosition.current += 0.5; // швидкість руху (пікселів або відсотків)
+    backgroundPosition.current += 0.5;
     if (backgroundPosition.current > 400) backgroundPosition.current = 0;
 
     buyBtnRef.current.style.backgroundPosition = `${backgroundPosition.current}% 0%`;
@@ -60,24 +59,36 @@ export default function Slider({ onBuy }) {
     if (activeIndex !== null) {
       animationFrameId.current = requestAnimationFrame(animateBackground);
     } else {
-      // Зупиняємо анімацію і скидаємо позицію
-      if (animationFrameId.current) {
+      if (animationFrameId.current)
         cancelAnimationFrame(animationFrameId.current);
-      }
       backgroundPosition.current = 0;
       if (buyBtnRef.current) {
         buyBtnRef.current.style.backgroundPosition = "0% 0%";
       }
     }
-    // Очистка при демонтовані
+
     return () => {
-      if (animationFrameId.current) {
+      if (animationFrameId.current)
         cancelAnimationFrame(animationFrameId.current);
-      }
     };
   }, [activeIndex]);
 
-  // Ріпл і вибір стікера
+  const handleCardClick = (event, index) => {
+    setActiveIndex(index);
+    createRipple(event, index);
+  };
+
+  const handleBuyClick = () => {
+    if (activeIndex !== null) {
+      const selectedSticker = stickerData[activeIndex];
+      const queryParams = new URLSearchParams({
+        title: selectedSticker.title,
+        price: selectedSticker.newPrice,
+      }).toString();
+      router.push(`/orderForm?${queryParams}`);
+    }
+  };
+
   const createRipple = (event, index) => {
     const button = btnRefs.current[index];
     if (!button) return;
@@ -96,54 +107,58 @@ export default function Slider({ onBuy }) {
     circle.className = "ripple";
 
     const existingRipple = button.getElementsByClassName("ripple")[0];
-    if (existingRipple) {
-      existingRipple.remove();
-    }
+    if (existingRipple) existingRipple.remove();
 
     button.appendChild(circle);
   };
 
-  const handleClick = (event, index) => {
-    createRipple(event, index);
-    setActiveIndex(index);
-  };
-
   return (
-    <section className="flex justify-between my-[30px] py-1 flex-wrap gap-4 text-white">
-      {stickerData.map(({ alt, src, title, oldPrice, newPrice }, index) => (
-        <button
-          key={index}
-          ref={(el) => (btnRefs.current[index] = el)}
-          onClick={(e) => handleClick(e, index)}
-          type="button"
-          className={`relative overflow-hidden w-[205px] bg-white rounded-lg py-1 shadow-card transform transition-transform duration-200 cursor-pointer ${
-            activeIndex === index ? "scale-[1.15]" : ""
-          }`}
-        >
-          <div id="card-image">
-            <Image
-              alt={alt}
-              src={src}
-              width={200}
-              height={200}
-              className="border-b border-[rgba(0,0,0,0.23)] mx-auto"
-            />
-          </div>
-          <div id="card-info" className="text-left px-4 py-1">
-            <p className="text-base mb-4">{title}</p>
-            <p className="text-base line-through text-gray-500">{oldPrice} ₴</p>
-            <p className="text-base text-[#E53935]">{newPrice} ₴</p>
-          </div>
-        </button>
-      ))}
+    <section className="my-[30px] py-1 text-white">
+      <div
+        className="
+      flex overflow-x-auto scroll-smooth relative
+    "
+      >
+        {stickerData.map(({ alt, src, title, oldPrice, newPrice }, index) => (
+          <button
+            key={index}
+            ref={(el) => (btnRefs.current[index] = el)}
+            onClick={(e) => handleCardClick(e, index)}
+            type="button"
+            className={`
+          flex-shrink-0 overflow-hidden
+          bg-white rounded-lg py-1 shadow-card
+          transition-transform duration-200 min-w-[200px] min-h-[177px] z-10 my-4 mr-6
+          ${activeIndex === index ? "scale-[1.1] z-10" : ""}
+        `}
+            style={{ verticalAlign: "top" }}
+          >
+            <div id="card-image" className="mb-2">
+              <Image
+                alt={alt}
+                src={src}
+                width={180}
+                height={180}
+                className="mx-auto border-b border-[rgba(0,0,0,0.15)]"
+              />
+            </div>
+            <div id="card-info" className="text-left px-4 py-1">
+              <p className="text-lg mb-2 text-black font-bold">{title}</p>
+              <p className="text-sm line-through text-gray-400">{oldPrice} ₴</p>
+              <p className="text-base text-[#18B269] font-bold">{newPrice} ₴</p>
+            </div>
+          </button>
+        ))}
+      </div>
+
       <button
         ref={buyBtnRef}
         disabled={activeIndex === null}
-        onClick={() => {
-          if (activeIndex !== null && onBuy) onBuy(activeIndex);
-        }}
-        className={`w-full mt-8 h-[48px] flex items-center justify-center rounded-lg text-white transition-colors duration-300 ${
-          activeIndex === null ? "bg-black" : "bg-glowing cursor-pointer"
+        onClick={handleBuyClick}
+        className={`w-full mt-8 h-[48px] flex items-center justify-center rounded-lg text-white transition-colors duration-400 ${
+          activeIndex === null
+            ? "bg-black"
+            : "bg-[#18B269] hover:bg-[#149a56] cursor-pointer active:scale-95"
         }`}
       >
         Придбати

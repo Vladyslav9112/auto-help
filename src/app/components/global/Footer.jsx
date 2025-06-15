@@ -1,10 +1,10 @@
 import Image from "next/image";
-import ContentWrapper from "./global/ContentWrapper";
+import ContentWrapper from "./ContentWrapper";
 
 export default function Footer() {
   return (
     <ContentWrapper>
-      <footer className="bg-white py-4 bottom-0">
+      <footer className="bg-white py-4 mib-h-[100px]">
         <div className="flex items-center justify-center mb-1">
           <Image
             src={"/icons/telegram.svg"}
@@ -20,19 +20,17 @@ export default function Footer() {
             alt="icon instagram"
           />
         </div>
-        <div className="flex justify-center gap-[10px] h-[40px] items-center">
-          <a href="#" className="">
-            Публічна оферта
-          </a>
-          <a href="#" className="pl-[10px] border-l border-black">
+        <div className="flex flex-wrap justify-center gap-[6px] h-[40px] items-center text-sm sm:text-base">
+          <a href="#">Публічна оферта</a>
+          <a href="#" className="pl-[6px] border-l-2 border-black">
             Політика конфіденційності
           </a>
-          <a href="#" className="pl-[10px] border-l border-black">
+          <a href="#" className="pl-[6px] border-l-2 border-black">
             Доставка
           </a>
         </div>
 
-        <div className="flex justify-between items-center mt-4">
+        <div className="flex justify-around sm:justify-between items-center mt-4">
           <Image
             src={"/icons/maestro.png"}
             width={87}
