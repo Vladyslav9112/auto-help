@@ -17,39 +17,28 @@ export default function ContactsPage() {
 
         <div className="mt-4 space-y-2">
           <p>
-            <strong>Назва компанії:</strong> ФОП Уберт Євгеній Олександрович
+            <strong>Назва компанії:</strong> ФОП Бєлошенко Едуард Петрович.
           </p>
           <p>
-            <strong>ІПН / ЄДРПОУ:</strong> 3442005078
+            <strong>ІПН / ЄДРПОУ:</strong> 3372609093
           </p>
           <p>
             <strong>Юридична адреса:</strong> Надається за запитом відповідно до
             чинного Законодавства
           </p>
           <p>
-            <strong>Сайт:</strong>{" "}
-            <a
-              href="https://prodaytachky.com.ua"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline"
-            >
-              https://prodaytachky.com.ua
-            </a>
-          </p>
-          <p>
             <strong>Email підтримки:</strong>{" "}
             <a
-              href="mailto:prodaytachkyua@gmail.com"
+              href="mailto:eduard.beloshenko@gmail.com"
               className="text-blue-500 underline"
             >
-              prodaytachkyua@gmail.com
+              eduard.beloshenko@gmail.com
             </a>
           </p>
           <p>
             <strong>Телефон підтримки:</strong>{" "}
-            <a href="tel:+380987779940" className="text-blue-500 underline">
-              +380987779940
+            <a href="tel:+380935459155" className="text-blue-500 underline">
+              +380935459155
             </a>
           </p>
         </div>

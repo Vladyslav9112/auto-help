@@ -11,27 +11,31 @@ const stickerData = [
     title: "1 Стікер",
     oldPrice: 100,
     newPrice: 99,
+    count: 1,
   },
   {
-    alt: "2 Стікера",
+    alt: "2 Стікери",
     src: "/2.png",
-    title: "2 Стікера",
+    title: "2 Стікери",
     oldPrice: 200,
     newPrice: 199,
+    count: 2,
   },
   {
-    alt: "5 + 1 Стікер",
+    alt: "6 Стікерів",
     src: "/6.png",
-    title: "5 + 1 Стікер",
+    title: "6 Стікерів",
     oldPrice: 600,
     newPrice: 499,
+    count: 6,
   },
   {
-    alt: "10 + 2 Стікер",
+    alt: "12 Стікерів",
     src: "/12.png",
-    title: "10 + 2 Стікер",
+    title: "12 Стікерів",
     oldPrice: 1200,
     newPrice: 999,
+    count: 12,
   },
 ];
 
@@ -84,6 +88,7 @@ export default function Slider() {
       const queryParams = new URLSearchParams({
         title: selectedSticker.title,
         price: selectedSticker.newPrice,
+        count: selectedSticker.count.toString(),
       }).toString();
       router.push(`/orderForm?${queryParams}`);
     }

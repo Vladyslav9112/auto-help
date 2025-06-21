@@ -14,12 +14,14 @@ export default function PublicOfferPage() {
             <p>
               1.1. Ця оферта є офіційною пропозицією Продавця укласти Договір
               купівлі-продажу товарів дистанційним способом, відповідно до ст.
-              11 Закону України «Про електронну комерцію», і розміщена на сайті
+              11 Закону України «Про електронну комерцію», і розміщена на сайті{" "}
               <a
-                href="https://prodaytachky.com.ua/"
-                className="text-blue-600 underline ml-1"
+                href="https://auto-help.com.ua"
+                className="text-blue-600 underline"
               >
-                https://prodaytachky.com.ua/
+                <span className="text-blue-600 underline">
+                  https://auto-help.com.ua
+                </span>
               </a>
               .
             </p>
@@ -38,20 +40,22 @@ export default function PublicOfferPage() {
               інтернет-магазині.
             </p>
             <p>
-              <strong>Інтернет-магазин</strong> — ресурс за{" "}
+              <strong>Інтернет-магазин</strong> — ресурс за адресою{" "}
               <a
                 href="https://auto-help.com.ua"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline"
               >
-                <span className="text-blue-500 underline">адресою</span>
+                <span className="text-blue-500 underline">
+                  https://auto-help.com.ua
+                </span>
               </a>
               .
             </p>
 
             <p>
-              <strong>Продавець</strong> — ФОП Уберт Євгеній Олександрович.
+              <strong>Продавець</strong> — ФОП Бєлошенко Едуард Петрович.
             </p>
             <p>
               <strong>Покупець</strong> — фізична особа, яка уклала договір з
@@ -234,19 +238,19 @@ export default function PublicOfferPage() {
             Адреса та реквізити продавця
           </h2>
           <p>
-            <strong>ФОП:</strong> Уберт Євгеній Олександрович
+            <strong>ФОП:</strong> Бєлошенко Едуард Петрович.
           </p>
           <p>
             <strong>Юридична адреса:</strong> Надається за запитом відповідно до
             чинного Законодавства
           </p>
           <p>
-            <strong>ІПН:</strong> 3442005078
+            <strong>ІПН:</strong> 3372609093
           </p>
           <p>
             <strong>Телефон:</strong>{" "}
-            <a href="tel:+380987779940" className="text-blue-500 underline">
-              +380987779940
+            <a href="tel:+380935459155" className="text-blue-500 underline">
+              +380935459155
             </a>
           </p>
         </section>

@@ -32,8 +32,8 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-semibold mt-6">1. Загальні положення</h2>
           <div className="pl-4">
             <p>
-              Власник персональних даних: ФОП Уберт Євгеній Олександрович, ІПН:
-              3442005078, юридична адреса: Надається за запитом відповідно до
+              Власник персональних даних: ФОП Бєлошенко Едуард Петрович, ІПН:
+              3372609093, юридична адреса: Надається за запитом відповідно до
               чинного Законодавства.
             </p>
             <p>
@@ -140,16 +140,16 @@ export default function PrivacyPolicyPage() {
             <li>
               Email:{" "}
               <a
-                href="mailto:prodaytachkyua@gmail.com"
+                href="mailto:eduard.beloshenko@gmail.com"
                 className="text-blue-500 underline"
               >
-                prodaytachkyua@gmail.com
+                eduard.beloshenko@gmail.com
               </a>
             </li>
             <li>
               Телефон:{" "}
-              <a href="tel:+380987779940" className="text-blue-500 underline">
-                +380987779940
+              <a href="tel:+380935459155" className="text-blue-500 underline">
+                +380935459155
               </a>
             </li>
           </ul>
