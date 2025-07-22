@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+.shadow-card {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.2) 0px 2px 1px -1px;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  animation: ripple-animation 600ms linear;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

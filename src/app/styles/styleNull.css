@@ -1,0 +1,45 @@
+/* Просте онулення стилів */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1.5;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Вирівнювання зображень */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Унаследування шрифтів */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Забирає лишні стилі списків */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Посилання без підкреслення */
+a {
+  text-decoration: none;
+  color: inherit;
+}
